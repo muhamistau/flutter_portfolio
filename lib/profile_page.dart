@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:my_portfolio/Skills.dart';
 import 'responsive_widget.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -9,27 +10,6 @@ class ProfilePage extends StatelessWidget {
     return ResponsiveWidget(
       largeScreen: Scaffold(
         backgroundColor: Colors.white,
-        drawer: ResponsiveWidget.isSmallScreen(context)
-            ? Drawer(
-                child: ListView(
-                  padding: const EdgeInsets.all(20),
-                  children: <Widget>[
-                    NavButton(
-                      text: "About",
-                      onPressed: () {},
-                    ),
-                    NavButton(
-                      text: "Work",
-                      onPressed: () {},
-                    ),
-                    NavButton(
-                      text: "Contact",
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              )
-            : null,
         body: SingleChildScrollView(
           child: AnimatedPadding(
             duration: Duration(seconds: 1),
@@ -43,6 +23,10 @@ class ProfilePage extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.1,
                   ),
                   ProfileInfo(),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.1,
+                  ),
+                  // Skills(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.1,
                   ),
@@ -65,10 +49,9 @@ class NavHeader extends StatelessWidget {
             ? MainAxisAlignment.center
             : MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          PKDot(),
-//          Spacer(),
-          if (!ResponsiveWidget.isSmallScreen(context))
+        children:
+        <Widget>[
+          Title(),
             Row(
               children: <Widget>[
                 NavButton(
@@ -87,11 +70,35 @@ class NavHeader extends StatelessWidget {
             )
         ],
       ),
+      smallScreen: Column(
+        mainAxisAlignment:MainAxisAlignment.center,
+            // : MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children:
+        <Widget>[
+          Title(),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.1,
+          ),
+          NavButton(
+            text: "About",
+            onPressed: () {},
+          ),
+          NavButton(
+            text: "Work",
+            onPressed: () {},
+          ),
+          NavButton(
+            text: "Contact",
+            onPressed: () {},
+          ),
+        ],
+      ),
     );
   }
 }
 
-class PKDot extends StatelessWidget {
+class Title extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -154,10 +161,9 @@ class ProfileInfo extends StatelessWidget {
             ? MediaQuery.of(context).size.height * 0.25
             : MediaQuery.of(context).size.width * 0.25,
         decoration: BoxDecoration(
-//            borderRadius: BorderRadius.circular(40),
           shape: BoxShape.circle,
           image: DecorationImage(
-            image: AssetImage("pic.JPG"),
+            image: AssetImage("pic.jpg"),
             alignment: Alignment.center,
             fit: BoxFit.cover,
           ),
@@ -165,7 +171,7 @@ class ProfileInfo extends StatelessWidget {
       );
 
   final profileData = Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.center,
     children: <Widget>[
       Text(
         "Hi there! My name is",
@@ -175,6 +181,7 @@ class ProfileInfo extends StatelessWidget {
       Text(
         "Muhammad Islam\nTaufikurahman",
         textScaleFactor: 5,
+        textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.bold,
@@ -184,39 +191,32 @@ class ProfileInfo extends StatelessWidget {
         height: 10,
       ),
       Text(
-        "A Google Developer Expert for Flutter, Dart & Web Tech.\n"
-        "I am also a youtuber having MTechViral youtube channel\n"
-        "where I make tutorials for technology.",
+        "Bandung-born Computer Science major Student with\n"
+        "high interest in Mobile Application Development\n"
+        "Technology especially in Android Development and Flutter.",
         softWrap: true,
         textScaleFactor: 1.5,
+        textAlign: TextAlign.center,
         style: TextStyle(color: Colors.black54),
       ),
       SizedBox(
         height: 20,
       ),
       Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           RaisedButton(
             shape: StadiumBorder(),
-            child: Text("Resume"),
-            color: Colors.red,
-            onPressed: () {},
-            padding: EdgeInsets.all(10),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          OutlineButton(
-            borderSide: BorderSide(
-              color: Colors.red,
+            child: Text(
+              "Resume",
+              style: TextStyle(
+                color: Colors.white,
+              ),
             ),
-            shape: StadiumBorder(),
-            child: Text("Say Hi!"),
-            color: Colors.red,
+            color: Colors.orange,
             onPressed: () {},
             padding: EdgeInsets.all(10),
-          )
+          ),
         ],
       )
     ],
