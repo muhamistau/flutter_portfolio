@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.white,
+        accentColor: Colors.orange,
         fontFamily: "GoogleSansRegular",
       ),
       home: ProfilePage(),

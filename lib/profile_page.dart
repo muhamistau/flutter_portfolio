@@ -1,6 +1,7 @@
 import 'package:flutter_web/material.dart';
 import 'package:my_portfolio/Skills.dart';
 import 'responsive_widget.dart';
+import 'dart:html' as html;
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key key}) : super(key: key);
@@ -26,7 +27,7 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.1,
                   ),
-                  // Skills(),
+                  Skills(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.1,
                   ),
@@ -78,7 +79,7 @@ class NavHeader extends StatelessWidget {
         <Widget>[
           Title(),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.1,
+            height: MediaQuery.of(context).size.height * 0.05,
           ),
           NavButton(
             text: "About",
@@ -179,8 +180,17 @@ class ProfileInfo extends StatelessWidget {
         style: TextStyle(color: Colors.orange),
       ),
       Text(
-        "Muhammad Islam\nTaufikurahman",
-        textScaleFactor: 5,
+        "Muhammad Islam",
+        textScaleFactor: 3.5,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      Text(
+        "Taufikurahman",
+        textScaleFactor: 3,
         textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.black,
@@ -208,13 +218,18 @@ class ProfileInfo extends StatelessWidget {
           RaisedButton(
             shape: StadiumBorder(),
             child: Text(
-              "Resume",
+              "My Resume",
               style: TextStyle(
                 color: Colors.white,
               ),
             ),
             color: Colors.orange,
-            onPressed: () {},
+            onPressed: () {
+              html.window.open(
+                "https://drive.google.com/open?id=1GgT783rWHHoIU4jAVj4JQDOy9UX7to3F",
+                "Resume"
+              );
+            },
             padding: EdgeInsets.all(10),
           ),
         ],
@@ -257,7 +272,9 @@ class SocialInfo extends StatelessWidget {
             children: <Widget>[
               NavButton(
                 text: "Github",
-                onPressed: () {},
+                onPressed: () {
+                  html.window.open("https://github.com/muhamistau", "Github");
+                },
                 color: Colors.blue,
               ),
               NavButton(
@@ -281,7 +298,9 @@ class SocialInfo extends StatelessWidget {
         children: <Widget>[
           NavButton(
             text: "Github",
-            onPressed: () {},
+            onPressed: () {
+              html.window.open("https://github.com/muhamistau", "Github");
+            },
             color: Colors.blue,
           ),
           NavButton(
