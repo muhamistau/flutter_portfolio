@@ -11,7 +11,7 @@ class SkillItem extends StatelessWidget {
     return Row(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(left: 64.0),
+          padding: const EdgeInsets.only(left: 32.0),
           child: AnimatedContainer(
             duration: Duration(seconds: 1),
             height: 10,
